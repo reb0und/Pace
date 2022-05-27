@@ -1,9 +1,10 @@
 package main
 
 import (
+	"log"
+
 	"github.com/Nano-Software/Pace/internal/engine"
 	"github.com/Nano-Software/Pace/internal/tasks"
-	"log"
 
 	"go.uber.org/zap"
 
@@ -24,7 +25,14 @@ func main() {
 	switch config.Module {
 	case "cmv2":
 		for i := 0; i < int(config.Count); i++ {
-			engine.StartTask(&tasks.Task{})
+			engine.StartTask(&tasks.Task{
+				Module:   &tasks.Module{},
+				Input:    "",
+				Internal: struct{}{},
+				Context:  nil,
+				Cancel:   nil,
+				Secret:   "",
+			})
 		}
 
 	case "":
