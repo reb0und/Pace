@@ -6,7 +6,8 @@ var (
 	Finished   TaskState = "Finished"
 	ErrorState TaskState = "error"
 
-	ModuleDoesNotExistError = errors.New("module does not exist")
+	ModuleDoesNotExistError    = errors.New("module does not exist")
+	TaskStateDoesNotExistError = errors.New("task state does not exist")
 
 	moduleMap = make(map[string]*Module)
 )
@@ -34,4 +35,13 @@ func (m *Module) AddHandlers(taskMap *TaskMap) {
 	for state, handler := range *taskMap {
 		m.taskMap[state] = handler
 	}
+}
+
+func (m *Module) SetInitialState(state TaskState) error {
+	if m.DoesStateExist(state) {
+		m.initialState = state
+		return nil
+	}
+
+	return TaskStateDoesNotExistError
 }
