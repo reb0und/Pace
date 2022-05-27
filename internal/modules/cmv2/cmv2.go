@@ -5,8 +5,10 @@ import (
 )
 
 func Initialize() {
-	_ = tasks.TaskMap{
+	cmv2Module := tasks.RegisterModule("cmv2")
+
+	cmv2Module.AddHandlers(&tasks.TaskMap{
 		INITIALIZE: initialize,
 		MONITOR:    monitor,
-	}
+	})
 }

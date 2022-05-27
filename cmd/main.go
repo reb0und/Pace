@@ -3,13 +3,11 @@ package main
 import (
 	"log"
 
-	"github.com/Nano-Software/Pace/internal/engine"
-	"github.com/Nano-Software/Pace/internal/tasks"
-
 	"go.uber.org/zap"
 
 	"github.com/Nano-Software/Pace/configs"
 	"github.com/Nano-Software/Pace/internal/bootstrap"
+	"github.com/Nano-Software/Pace/internal/modules/cmv2"
 )
 
 func main() {
@@ -17,28 +15,12 @@ func main() {
 		log.Fatalln(err.Error())
 	}
 
-	config, err := configs.LoadConfig("./config.yml")
+	_, err := configs.LoadConfig("./config.yml")
 	if err != nil {
 		zap.L().Fatal(err.Error())
 	}
 
-	switch config.Module {
-	case "cmv2":
-		for i := 0; i < int(config.Count); i++ {
-			engine.StartTask(&tasks.Task{
-				Module:   &tasks.Module{},
-				Input:    "",
-				Internal: struct{}{},
-				Context:  nil,
-				Cancel:   nil,
-				Secret:   "",
-			})
-		}
+	cmv2.Initialize()
 
-	case "":
-		zap.L().Fatal("No Module Found")
-	default:
-		zap.L().Fatal("No Module Found1")
-
-	}
+	// TODO: Create function or some sort of handler here for config
 }
