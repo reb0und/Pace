@@ -14,6 +14,7 @@ type Task struct {
 	Context      context.Context
 	Cancel       context.CancelFunc
 	Secret       string
+	Monitor      chan interface{}
 }
 
 type Module struct {
