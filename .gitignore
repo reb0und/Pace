@@ -24,8 +24,6 @@ go.sum
 
 /.idea
 
-<<<<<<< HEAD
 .DS_Store
-=======
-.DS_Store
->>>>>>> 612c53e (First)
+
+/bin/Pace
