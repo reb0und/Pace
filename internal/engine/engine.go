@@ -2,7 +2,7 @@ package engine
 
 import "github.com/Nano-Software/Pace/internal/tasks"
 
-func StartTask() {
+func StartTask(t *tasks.Task) {
 	//	call first task method in interface?
 }
 
