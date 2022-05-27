@@ -8,6 +8,7 @@ import (
 	"github.com/Nano-Software/Pace/configs"
 	"github.com/Nano-Software/Pace/internal/bootstrap"
 	"github.com/Nano-Software/Pace/internal/modules/cmv2"
+	"github.com/Nano-Software/Pace/internal/tasks"
 )
 
 func main() {
@@ -17,7 +18,8 @@ func main() {
 	}
 
 	// Load Task Configuration
-	if _, err := configs.LoadConfig("./config.yml"); err != nil {
+	config, err := configs.LoadConfig("./config.yml")
+	if err != nil {
 		zap.L().Fatal(err.Error())
 	}
 
@@ -27,4 +29,7 @@ func main() {
 	}
 
 	// TODO: Create function or some sort of handler here for config
+	if err := tasks.InitializeTasks(config); err != nil {
+		zap.L().Fatal(err.Error())
+	}
 }

@@ -7,5 +7,9 @@ func InitializeTasks(config *configs.Config) error {
 		return ModuleDoesNotExistError
 	}
 
+	for i := 0; i < int(config.Count); i++ {
+		go func() {}()
+	}
+
 	return nil
 }
