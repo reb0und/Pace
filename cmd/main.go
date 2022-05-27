@@ -28,8 +28,9 @@ func main() {
 		zap.L().Fatal(err.Error())
 	}
 
-	// TODO: Create function or some sort of handler here for config
 	if err := tasks.InitializeTasks(config); err != nil {
 		zap.L().Fatal(err.Error())
 	}
+
+	// TODO: Create overarching task controller with monitor and other data such as block hash
 }
