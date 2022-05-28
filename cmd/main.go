@@ -34,4 +34,6 @@ func main() {
 	}
 
 	// TODO: Create overarching task controller with monitor and other data such as block hash
+
+	// TODO: Setup channel architecture between tasks
 }

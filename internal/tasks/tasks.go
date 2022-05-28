@@ -11,7 +11,7 @@ func InitializeTasks(config *configs.Config) error {
 
 	for i := 0; i < int(config.Count); i++ {
 		go func() {
-			// TODO: Setup context and cancel function here possibly create instance of task but that may result in unnecessary allocation of memory however we could reassign it as nil
+			// TODO: Possibly create instance of task but that may result in unnecessary allocation of memory however we could reassign it as nil
 		}()
 	}
 

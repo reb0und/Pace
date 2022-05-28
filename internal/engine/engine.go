@@ -13,7 +13,6 @@ func StartTask(t *tasks.Task) {
 }
 
 func StopTask(t *tasks.Task) {
-	t.Cancel()
 	t.TaskIsActive = false
 	t.Internal = nil
 }
