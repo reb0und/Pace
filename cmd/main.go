@@ -3,11 +3,12 @@ package main
 import (
 	"log"
 
+	"github.com/Nano-Software/Pace/modules/cmv2"
+
 	"go.uber.org/zap"
 
 	"github.com/Nano-Software/Pace/configs"
 	"github.com/Nano-Software/Pace/internal/bootstrap"
-	"github.com/Nano-Software/Pace/internal/modules/cmv2"
 	"github.com/Nano-Software/Pace/internal/tasks"
 )
 

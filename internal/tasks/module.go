@@ -3,7 +3,7 @@ package tasks
 import "errors"
 
 var (
-	FinishedState TaskState = "Finished"
+	FinishedState TaskState = "finished"
 	ErrorState    TaskState = "error"
 
 	ModuleDoesNotExistError    = errors.New("module does not exist")
