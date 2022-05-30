@@ -14,7 +14,7 @@ type Task struct {
 	Input        string
 	Internal     interface{}
 	Secret       string
-	Monitor      chan interface{}
+	Monitor      chan string
 }
 
 func InitializeTasks(config *configs.Config) error {
