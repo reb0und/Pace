@@ -12,6 +12,11 @@ var (
 	moduleMap = make(map[string]*Module)
 )
 
+type Module struct {
+	initialState TaskState
+	taskMap      TaskMap
+}
+
 func RegisterModule(moduleName string) *Module {
 	moduleMap[moduleName] = &Module{}
 
